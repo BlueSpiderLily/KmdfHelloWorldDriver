@@ -29,7 +29,7 @@ NTSTATUS DriverEntry(
 **NTSTATUS** as a return type is crucial because it indicates success or failure, & usually useful debugging information such as diagnostic codes.
 
 >Both **DriverObject** and **RegistryPath** are needed parameters for the DriverEntry entrypoint function as seen on Microsoft’s official documentation.
->**DriverObject** is a ptr to a structure that represents the Windows Driver Model driver object.
+>>**DriverObject** is a ptr to a structure that represents the Windows Driver Model driver object.
 >**RegistryPath** here is a ptr to a structure that specifies the path to the driver’s parameters in the registry.
 
 Furthermore - as I defined this method I tried to comment as best as I could to explain what is happening. 
