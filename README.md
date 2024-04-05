@@ -40,7 +40,7 @@ Furthermore - as I defined this method I tried to comment as best as I could to 
 
 As seen in the WDF_DRIVER_CONFIG_INIT function I pass a ptr to the drivers EntDriverDeviceAdd method which is defined below.
 
-![DriverEntry](https://i.imgur.com/nbcfAKP.png)
+![KmdfHelloWorldEvtDeviceAdd](https://i.imgur.com/nbcfAKP.png)
 
 I show you all of this to to prove the primary content of a kernel level driver is usually just a grouping of functions, that just sit there and wait for an event or the system to call them to perform some action.
 
@@ -50,4 +50,28 @@ I show you all of this to to prove the primary content of a kernel level driver 
 + A system event (such as a poweroff)
 + A request from another driver/ syscall
 
+# Debugging Drivers On Seperate Computers
 
++ Introduction
+  + Debugging drivers often involves using separate computers: a host and a target.
+  + The host computer debugs the target, which is crucial because driver debugging deals with entire machine operations, not just single applications.
+ 
++ Host Computer
+  + The host computer is where debugging tools are run.
+  + Debugging on the host isolates the target, reducing risks and maintaining stability.
+  + It enables real-world testing by simulating driver behavior in its intended environment.
+  + Access to hardware resources is facilitated for thorough debugging.
+  + Kernel debugging capabilities are provided, granting special execution privileges for in-depth analysis.
+ 
++ Target Computer
+  + The target computer runs the operating system and the driver being debugged.
+  + It represents the real-world environment for observing driver interactions.
+  + Debugging on the target ensures isolation from the host, preventing destabilization.
+  + It allows direct access to hardware resources required for debugging tasks.
+  + Kernel debugging functionalities are utilized for troubleshooting kernel-mode components.
+
+# Driver Deployment (to target machine)
+
+Now we set up the deployment aspect of this driver. In visual studio, we have an option to deploy a driver using the network. Which is what I used in this project. To get the driver to my target machine.
+
+![KmdfHelloWorldEvtDeviceAdd](https://i.imgur.com/bWOEJwk.png)
