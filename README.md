@@ -97,3 +97,53 @@ After manipulating these settings, I finally got the driver to deploy on my targ
 The KmdfHelloWorld.sys is the actual driver here. 
 
 # Installing The Driver - After Deployment
+
+## Service Creation Method
+
+At first I tried to install this driver by creating a service of type kernel and running the service.
+
+![ServiceCreationMethod](https://i.imgur.com/l9w2Eu3.png).
+
+However, the guide which I followed to create the driver does it a different way than the book I am reading, so I wanted to do it both ways. I prefer this way though. 
+
+The guide uses a tool called *DevCon* utility located inside the Windows Development Kit installation path to install this driver. 
+
+## Devcon Utility Method
+
+![DevconUtilityMethod](https://i.imgur.com/LsAmZ17.png).
+
+As you can see it created a device node, and prompted me if I wanted to install this driver. Which I did. :D 
+
+![Success](https://i.imgur.com/DVKOMd6.png).
+
+Success! Now in order to 100% guarantee that the driver is installed I wanted to see it whilst debugging. 
+
+# Debugging The Driver
+
+To debug a driver, you can either use WinDbg, or WinDbg preview which is just a newer release (has a much better user interface).
+
+The first task though to be able to debug is to enable debugging in the command prompt via the command: **bcdedit /debug on**, or else a connection will not establish.
+
+Then I needed to set adjust some basic settings, in both the command prompt on the target machine and in WinDbg on the host machine. 
+
+#### Target Machine: 
+
+![TargetMachine](https://i.imgur.com/RwaZIE9.png).
+
+#### Host Machine:
+
+![HostMachine](https://i.imgur.com/6rgL1lL.png).
+
+Which then allowed me to attach to the target machines kernel and set a breakpoint on the entire machine. 
+
+![WinDbgConnection](https://i.imgur.com/vuguGhw.png).
+
+Now that I’ve got a connection to the kernel I can load the modules and see that I’ve successfully installed and got the kmdfHelloWorldDriver loaded and working. 
+
+![LoadedModules](https://i.imgur.com/U3fcGcR.png).
+
+Finally to finish it all off I just wanted to confirm my output via kdPrint was working, and here is a picture of that through DbgView. 
+
+![TheEnd](https://i.imgur.com/FipAh8Y.png).
+
+# The End!
