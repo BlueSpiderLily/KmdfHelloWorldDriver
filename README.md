@@ -74,4 +74,26 @@ I show you all of this to to prove the primary content of a kernel level driver 
 
 Now we set up the deployment aspect of this driver. In visual studio, we have an option to deploy a driver using the network. Which is what I used in this project. To get the driver to my target machine.
 
-![KmdfHelloWorldEvtDeviceAdd](https://i.imgur.com/bWOEJwk.png)
+![DeploymentSettingsInVisualStudio](https://i.imgur.com/bWOEJwk.png)
+
+As you can see I am using the network to deploy my driver in the network, I am providing the PC name as the network host and communicating over port 52390. 
+
+**Below I am pinging the target machine to ensure communication.**
+
+![PingingEnsuringCommunication](https://i.imgur.com/TdDkjRS.png)
+
+However this communication over the network wasn’t working at first, so I had to go into the firewall settings. As shown below - and for all **Inbound Rules** with a **Profile** of **“Private”**, I had to change a setting in order to fulfill communication between my two devices. 
+
+![FirewallInboundRules](https://i.imgur.com/4KcOzLx.png)
+
+Inside of these base profiles of private, all I had to do was make sure that under Scope > Remote IP Address it was set to Any IP address. In contrast to the option below.
+
+![RemoteIpAddressFirewallSettings](https://i.imgur.com/2UQmoAq.png)
+
+After manipulating these settings, I finally got the driver to deploy on my target VM as shown here. 
+
+![DriverOnTargetMachineProof](https://i.imgur.com/Fm8HZ4y.png).
+
+The KmdfHelloWorld.sys is the actual driver here. 
+
+# Installing The Driver - After Deployment
