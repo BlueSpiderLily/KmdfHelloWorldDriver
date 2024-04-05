@@ -34,4 +34,6 @@ NTSTATUS DriverEntry(
 
 >>**RegistryPath** here is a ptr to a structure that specifies the path to the driver’s parameters in the registry.
 
-Furthermore - as I defined this method I tried to comment as best as I could to explain what is happening. 
+Furthermore - as I defined this method I tried to comment as best as I could to explain what is happening.
+
+![DriverEntry](https://imgur.com/a/k4oiN5J)
