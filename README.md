@@ -37,3 +37,7 @@ NTSTATUS DriverEntry(
 Furthermore - as I defined this method I tried to comment as best as I could to explain what is happening.
 
 ![DriverEntry](https://i.imgur.com/DBIQL4R.png)
+
+As seen in the WDF_DRIVER_CONFIG_INIT function I pass a ptr to the drivers EntDriverDeviceAdd method which is defined below.
+
+![DriverEntry](https://i.imgur.com/nbcfAKP.png)
