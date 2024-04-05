@@ -41,3 +41,13 @@ Furthermore - as I defined this method I tried to comment as best as I could to 
 As seen in the WDF_DRIVER_CONFIG_INIT function I pass a ptr to the drivers EntDriverDeviceAdd method which is defined below.
 
 ![DriverEntry](https://i.imgur.com/nbcfAKP.png)
+
+I show you all of this to to prove the primary content of a kernel level driver is usually just a grouping of functions, that just sit there and wait for an event or the system to call them to perform some action.
+
+### Examples:
++ New Device Arrival Event
++ Input/ Output Request from a usermode application
++ A system event (such as a poweroff)
++ A request from another driver/ syscall
+
+
