@@ -36,4 +36,4 @@ NTSTATUS DriverEntry(
 
 Furthermore - as I defined this method I tried to comment as best as I could to explain what is happening.
 
-![DriverEntry]([https://imgur.com/a/k4oiN5J)
+![DriverEntry](https://i.imgur.com/DBIQL4R.png)
