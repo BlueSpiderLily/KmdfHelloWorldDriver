@@ -144,6 +144,6 @@ Now that I’ve got a connection to the kernel I can load the modules and see th
 
 Finally to finish it all off I just wanted to confirm my output via kdPrint was working, and here is a picture of that through DbgView. 
 
-![TheEnd](https://i.imgur.com/FipAh8Y.png).
+![TheEnd](https://i.imgur.com/FipAh8Y.png)
 
 # The End!
